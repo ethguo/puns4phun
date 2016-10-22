@@ -9,29 +9,28 @@ body{
 	margin:0px;
 }
 
-#Title{
-	font-size: 150px;
-	top:10px;
-	text-align: center;
-	position: relative;
+p{
+	color: white;
+
+}
+
+.background {
+	width: 20%;
+	height: 42.5%;
+}
+
+.background1 {
+	width: 20%;
+	height: 42.5%;
+}
+
+#headerImg{
+	right:30%;
+	top: 30%;
 }
 
 #InputBox{
 	text-align: center;
-
-}
-
-
-#Catsby{
-
-	float: right;
-	margin-right: 10%;
-	width: 20%;
-	height: 40%;
-	position: relative;
-	
-	bottom: 45%;
-	
 }
 
 input[type="text"] {
@@ -54,8 +53,8 @@ input[type="text"] {
 }
 
 #secondDiv{
-	height:18%;
-	position:relative;
+	height: 15%;
+	position:fixed;
 	bottom: 0px;
 	display:block;
 	padding-bottom: 0px;
