@@ -8,7 +8,24 @@ inverseWords = pickle.load(open("inversewords.dat", "rb"))
 relatedPhenomes = pickle.load(open("relatedphenomes.dat", "rb"))
 
 def getPuns(word):
-	return [inverseWords[phenomes] for phenomes in words[word]]
+
+	punProns = []
+	for pron in words[word]:
+		punProns.append(pron)
+		pronList = pron.split()
+		for i, phenome in enumerate(pronList):
+			for newPhenome in relatedPhenomes[phenome]:
+				newPron = pronList[:]
+				newPron[i] = newPhenome
+				newPronStr = " ".join(newPron)
+				punProns.append(newPronStr)
+
+	puns = []
+	for pron in punProns:
+		if pron in inverseWords:
+			puns.extend(inverseWords[pron])
+
+	return puns
 
 indexHTML = """
 <!DOCTYPE html>
@@ -37,4 +54,4 @@ def getResults():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
