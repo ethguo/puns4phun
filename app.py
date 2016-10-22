@@ -57,7 +57,7 @@ def getResults():
 
     r = requests.get(azureUrl, params=payload, auth=(azureAccountKey, azureAccountKey))
 
-    return str(( r.url, r.text))
+    # return str(( r.url, r.text))
 
     puns = getPuns(word)
     print(puns)
@@ -68,8 +68,5 @@ def getResults():
 
     return str(phrase)
 
-
-
 if __name__ == "__main__":
-    app.run(debug=True)
-#    app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0", port=80)
