@@ -1,6 +1,8 @@
 import pickle
+import requests
 
 from flask import Flask, request, render_template
+
 app = Flask(__name__)
 
 words = pickle.load(open("words.dat", "rb"))
@@ -29,8 +31,6 @@ def getPuns(word):
 
 	return puns
 
-
-
 @app.route("/", methods=["GET"])
 def getIndex():
     return render_template("index.html")
@@ -42,4 +42,4 @@ def getResults():
 
 
 if __name__ == "__main__":
-    app.run(port=80)
+    app.run(host="0.0.0.0", port=80)
