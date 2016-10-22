@@ -5,14 +5,18 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-words = pickle.load(open("words.dat", "rb"))
+words = pickle.load(open("words.dat", "rb")) #set
+wordPhenomes = pickle.load(open("wordphenomes.dat", "rb"))
 inverseWords = pickle.load(open("inversewords.dat", "rb"))
 relatedPhenomes = pickle.load(open("relatedphenomes.dat", "rb"))
+
+azureUrl = "https://api.datamarket.azure.com/Bing/Search/"
+azureAccountKey = "Ik3BvLpK4JOlYRrFXsgICaI1/hBudlGvUz7RB7NMojc"
 
 def getPuns(word):
 
 	punProns = []
-	for pron in words[word]:
+	for pron in wordPhenomes[word]:
 		punProns.append(pron)
 		pronList = pron.split()
 		for i, phenome in enumerate(pronList):
@@ -27,7 +31,9 @@ def getPuns(word):
 		if pron in inverseWords:
 			puns.extend(inverseWords[pron])
 
-	puns = [pun for pun in puns if pun != word] # Remove original word
+	puns = set(puns) & words # Remove non-dictionary words
+
+	puns.remove(word) # Remove original word
 
 	return puns
 
@@ -38,7 +44,11 @@ def getIndex():
 @app.route("/results", methods=["POST"])
 def getResults():
     word = request.form["word"]
+
+    requests.get(imgSearchUrl)
+
     return str(getPuns(word))
+
 
 
 if __name__ == "__main__":
