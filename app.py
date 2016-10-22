@@ -10,7 +10,7 @@ wordPhenomes = pickle.load(open("wordphenomes.dat", "rb"))
 inverseWords = pickle.load(open("inversewords.dat", "rb"))
 relatedPhenomes = pickle.load(open("relatedphenomes.dat", "rb"))
 
-azureUrl = "https://api.datamarket.azure.com/Bing/Search/"
+azureUrl = "https://api.datamarket.azure.com/Bing/Search/Web"
 azureAccountKey = "Ik3BvLpK4JOlYRrFXsgICaI1/hBudlGvUz7RB7NMojc"
 
 def getPuns(word):
@@ -47,11 +47,15 @@ def getIndex():
 
 @app.route("/results", methods=["POST"])
 def getResults():
-    word = request.form["word"]
+    word = request.form["word"].upper()
 
     print(word)
 
-    # requests.get(imgSearchUrl)
+    payload = {"Query": "'" + word + "'", "$format": "json"}
+
+    r = requests.get(azureUrl, params=payload, auth=(azureAccountKey, azureAccountKey))
+
+    return str(( r.url, r.text))
 
     puns = getPuns(word)
 

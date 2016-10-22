@@ -2,7 +2,7 @@ html {
 	max-height: 100%;
 }
 
-body{
+body {
 	background-color: #303133;
 	margin-left: 0;
 	height:100%;
@@ -35,13 +35,19 @@ p{
 }
 
 #InputBox{
-	background-color: rgba(0, 0, 0, 0.25)
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: 1em 25%;
+	padding: 1em 1em 3em;
 	text-align: center;
+}
+
+.ilabel {
+	color: white;
 }
 
 input[type="text"] {
 	position: relative;
-	width: 25%;
+	width: 67%;
 	font-family: comic sans ms;
 	font-size: 18px;
 	box-shadow: none;
@@ -49,6 +55,8 @@ input[type="text"] {
 }
 
 input[type="submit"] {
+	margin-top:0.5em;
+	font-size: 125%;
 	font-family: comic sans ms;
 }
 
