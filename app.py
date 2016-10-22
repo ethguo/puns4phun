@@ -5,14 +5,10 @@ app = Flask(__name__)
 
 words = pickle.load(open("words.dat", "rb"))
 inverseWords = pickle.load(open("inversewords.dat", "rb"))
-relatedPhenomes = pickle.load(open("relatedPhenomes", "rb"))
+relatedPhenomes = pickle.load(open("relatedphenomes.dat", "rb"))
 
-# def phenomeSearch(word):
-#     return 
-
-# def reverseSearch(phenomes):
-
-#     return inverseWordsDB[phenomes]
+def getPuns(word):
+	return [inverseWords[phenomes] for phenomes in words[word]]
 
 indexHTML = """
 <!DOCTYPE html>
@@ -37,8 +33,8 @@ def getIndex():
 @app.route("/results", methods=["POST"])
 def getResults():
     word = request.form["word"]
-    return str([inverseWordsDB[phenomes] for phenomes in wordsDB[word]]) 
+    return str(getPuns(word))
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
