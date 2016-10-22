@@ -66,7 +66,8 @@ def getResults():
 
     phrase = phrase.replace(word.lower(), pun.lower())
 
-    return str(phrase)
+    return render_template("index2.html", phrase=phrase)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80)
+    app.run(debug=True)
+    # app.run(host="0.0.0.0", port=80)
