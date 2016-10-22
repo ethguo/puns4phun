@@ -45,7 +45,7 @@ def getIndex():
 def getResults():
     word = request.form["word"]
 
-    requests.get(imgSearchUrl)
+    # requests.get(imgSearchUrl)
 
     return str(getPuns(word))
 
