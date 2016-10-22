@@ -33,7 +33,7 @@ def getPuns(word):
 
 @app.route("/", methods=["GET"])
 def getIndex():
-    return render_template("index.html")
+    return render_template("index1.html")
 
 @app.route("/results", methods=["POST"])
 def getResults():
@@ -42,4 +42,4 @@ def getResults():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug = True)

@@ -3,7 +3,7 @@ html {
 }
 
 body{
-	background-color: #839DE8;
+	background-color: #303133;
 	margin-left: 0;
 	height:100%;
 	margin:0px;
@@ -11,6 +11,7 @@ body{
 
 p{
 	color: white;
+	font-family: comic sans ms;
 
 }
 
@@ -25,8 +26,8 @@ p{
 }
 
 #headerImg{
-	right:30%;
-	top: 30%;
+	margin-top: 5%;
+	margin-left: 30%;
 }
 
 #InputBox{
@@ -36,20 +37,24 @@ p{
 input[type="text"] {
 	position: relative;
 	width: 25%;
-	font-family: sans-serif;
+	font-family: comic sans ms;
 	font-size: 18px;
 	box-shadow: none;
 	border-radius: none;
 }
 
+input[type="submit"] {
+	font-family: comic sans ms;
+}
+
 .headfooter{
-	background-color: #6485E2;
+	background-color: #181819;
 	width:100%;
 	margin:0px;
 }
 
 #firstDiv{
-	height: 5%;
+	height: 10%;
 }
 
 #secondDiv{
