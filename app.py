@@ -1,5 +1,6 @@
 import pickle
 import requests
+import random
 
 from flask import Flask, request, render_template
 
@@ -48,16 +49,20 @@ def getIndex():
 @app.route("/results", methods=["POST"])
 def getResults():
     word = request.form["word"]
+    phrase = request.form["phrase"]
 
     print(word)
 
     # requests.get(imgSearchUrl)
 
     puns = getPuns(word)
-
     print(puns)
 
-    return str(puns)
+    pun = random.choice(list(puns))
+
+    phrase = phrase.replace(word.lower(), pun.lower())
+
+    return str(phrase)
 
 
 
