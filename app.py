@@ -25,6 +25,8 @@ def getPuns(word):
 		if pron in inverseWords:
 			puns.extend(inverseWords[pron])
 
+	puns = [pun for pun in puns if pun != word] # Remove original word
+
 	return puns
 
 indexHTML = """
