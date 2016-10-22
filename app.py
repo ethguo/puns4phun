@@ -1,6 +1,6 @@
 import pickle
 
-from flask import Flask, request
+from flask import Flask, request, render_template
 app = Flask(__name__)
 
 words = pickle.load(open("words.dat", "rb"))
@@ -29,25 +29,11 @@ def getPuns(word):
 
 	return puns
 
-indexHTML = """
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Puns 4 Phun</title>
-</head>
-<body style="font-family: "Comic Sans MS", cursive, sans-serif;">
-<h1>PUNS 4 PHUN</h1>
-<form action="/results" method="POST" accept-charset="utf-8">
-    <input type="text" name="word" value="READ" />
-    <input type="submit" value="Submit" />
-</form>
-</body>
-</html>
-"""
+
 
 @app.route("/", methods=["GET"])
 def getIndex():
-    return indexHTML
+    return render_template("index.html")
 
 @app.route("/results", methods=["POST"])
 def getResults():
@@ -56,4 +42,4 @@ def getResults():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
