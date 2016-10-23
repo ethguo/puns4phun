@@ -6,6 +6,7 @@ body {
 	background-color: #303133;
 	margin-left: 0;
 	height:100%;
+	width:100%;
 	margin:0px;
 }
 
@@ -31,7 +32,9 @@ p{
 
 #headerImg{
 	margin-top: 5%;
-	margin-left: 30%;
+	margin-left: 50%;
+	width: 548px;
+	transform: translate(-50%, -50%);
 }
 
 #InputBox{
